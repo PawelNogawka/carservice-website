@@ -1,0 +1,520 @@
+.btn {
+  display: block;
+  padding: 1rem 3rem;
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  letter-spacing: 0.05rem;
+  background-color: #6f64e7;
+  border-radius: 0.3rem;
+  text-decoration: none;
+}
+.btn--transparent {
+  background-color: transparent;
+  border: 0.1rem solid #fff;
+}
+
+.section-padding {
+  padding: 4rem 7vw;
+}
+
+.section-heading {
+  margin-bottom: 4rem;
+  font-size: min(9vw, 4rem);
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.05rem;
+}
+.section-heading .main-color {
+  color: #6f64e7;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding: 6rem 7vw;
+  }
+  .section-heading {
+    margin-bottom: 10rem;
+  }
+}
+@-webkit-keyframes blinking {
+  0% {
+    background-color: transparent;
+  }
+  50% {
+    background-color: #fff;
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+@keyframes blinking {
+  0% {
+    background-color: transparent;
+  }
+  50% {
+    background-color: #fff;
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppis", sans-serif;
+  color: #fff;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  scroll-padding: 7rem;
+}
+
+body {
+  background-color: #1d293e;
+  font-size: 1.6rem;
+  font-family: "Poppins", sans-serif;
+}
+
+button {
+  cursor: pointer;
+}
+
+.header {
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+}
+.header__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+.header__logo {
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.05rem;
+  text-decoration: none;
+  font-size: min(3rem, 5.5vw);
+  text-transform: uppercase;
+}
+
+.nav__btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 7rem;
+  height: 3rem;
+  padding: 0.7rem;
+  background: 0;
+  border: 0;
+}
+.nav__line {
+  height: 0.3rem;
+  width: 100%;
+  background-color: #fff;
+}
+
+.home {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-image: url(../images/hero-small.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+.home::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(54, 50, 158, 0.7);
+  z-index: -20;
+}
+.home__banner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  z-index: 10;
+}
+.home__heading {
+  position: relative;
+  text-transform: uppercase;
+  color: #fff;
+  letter-spacing: 0.05rem;
+  font-size: 2.4rem;
+  text-align: center;
+  line-height: 150%;
+}
+.home__heading::after {
+  content: "";
+  position: absolute;
+  height: 3.3rem;
+  width: 0.3rem;
+  background-color: #fff;
+  -webkit-animation: blinking 1s 5.4s infinite;
+          animation: blinking 1s 5.4s infinite;
+}
+
+.about__container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4rem;
+  align-items: center;
+  justify-content: center;
+}
+.about__images-container {
+  flex: 1 1 44rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+.about__img-box {
+  flex: 1 1 20rem;
+}
+.about__img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 0.3rem;
+  box-shadow: 0 0 2rem rgba(111, 100, 231, 0.7);
+}
+.about__content {
+  flex: 1 1 40rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4rem;
+}
+.about__heading {
+  font-weight: 600;
+  font-size: 2.4rem;
+  letter-spacing: 0.05rem;
+  text-transform: capitalize;
+  line-height: 150%;
+}
+.about__info {
+  line-height: 150%;
+}
+.about__contact {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+}
+.about__contact-tile {
+  flex: 1 1 15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  align-items: center;
+  justify-content: center;
+}
+.about__contact-tile i {
+  font-size: 3.5rem;
+}
+.about__contact-name {
+  font-weight: 600;
+  font-size: 2.2rem;
+  letter-spacing: 0.05rem;
+  text-transform: capitalize;
+}
+.about__btn {
+  box-shadow: 0 0.4rem 0.12rem rgba(0, 0, 0, 0.1);
+}
+
+.counter {
+  position: relative;
+  margin: 3rem 0;
+  background-image: url("../images/counter-small.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  z-index: -20;
+}
+.counter::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(111, 100, 231, 0.8);
+  z-index: -1;
+}
+.counter__container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  gap: 4rem;
+}
+.counter__tile {
+  flex: 1 1 20rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+.counter__tile i {
+  font-size: 3.3rem;
+}
+.counter__name {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 2.2rem;
+}
+.counter__amount {
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+.services__container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4rem;
+  align-items: stretch;
+  justify-content: center;
+}
+.services__service {
+  position: relative;
+  flex: 1 1 33rem;
+  padding: 3rem 2rem;
+  border-radius: 0.3rem;
+  box-shadow: 0 0 2rem rgba(111, 100, 231, 0.7);
+  background-image: url("../images/service-1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+.services__service:nth-of-type(1) {
+  background-image: url("../images/car-service-2.jpg");
+}
+.services__service:nth-of-type(2) {
+  background-image: url("../images/car-service-2.jpg");
+}
+.services__service:nth-of-type(3) {
+  background-image: url("../images/car-service-3.jpg");
+}
+.services__service:nth-of-type(4) {
+  background-image: url("../images/car-service-4.jpg");
+}
+.services__service:nth-of-type(5) {
+  background-image: url("../images/car-service-5.jpg");
+}
+.services__service:nth-of-type(6) {
+  background-image: url("../images/car-service-6.jpg");
+}
+.services__service::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: -10;
+  border-radius: 0.3rem;
+}
+.services__name {
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 8rem;
+  text-align: center;
+  font-size: 3rem;
+  line-height: 150%;
+}
+.services__subtitle {
+  font-weight: 600;
+  font-size: 2rem;
+  padding-left: 1rem;
+  text-transform: uppercase;
+  line-height: 150%;
+  width: 100%;
+}
+.services__line {
+  height: 0.3rem;
+  width: 85%;
+  background-color: #6f64e7;
+  border: 0;
+  margin-bottom: 6rem;
+}
+.services__info {
+  line-height: 150%;
+  text-align: center;
+  margin-bottom: 5rem;
+}
+.services__btn {
+  display: block;
+  width: 17rem;
+  margin: 0 auto;
+  box-shadow: 0 0.4rem 0.12rem rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  text-align: center;
+}
+
+.gallery {
+  height: 100vh;
+  width: 100%;
+}
+.gallery__container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.gallery__viewport {
+  position: absolute;
+  left: 50%;
+  top: 15%;
+  transform: translateX(-50%);
+  width: 42vw;
+  height: 21vw;
+  perspective: 1000px;
+}
+
+.cube {
+  position: relative;
+  width: 100%;
+  height: 33.3333333%;
+  transform-style: preserve-3d;
+}
+.cube--1 .cube__front {
+  background: url("../images/cube-1.jpg") no-repeat 50% 0;
+  background-size: cover;
+}
+.cube--2 .cube__front {
+  background: url("../images/cube-1.jpg") no-repeat 50% 33%;
+  background-size: cover;
+}
+.cube--3 .cube__front {
+  background: url("../images/cube-1.jpg") no-repeat 50% 66%;
+  background-size: cover;
+}
+.cube--1 .cube__left {
+  background: url("../images/cube-2.jpg") no-repeat 50% 0;
+  background-size: cover;
+}
+.cube--2 .cube__left {
+  background: url("../images/cube-2.jpg") no-repeat 50% -7vw;
+  background-size: cover;
+}
+.cube--3 .cube__left {
+  background: url("../images/cube-2.jpg") no-repeat 50% -14vw;
+  background-size: cover;
+}
+.cube--1 .cube__right {
+  background: url("../images/cube-3.jpg") no-repeat 50% 0;
+  background-size: cover;
+}
+.cube--2 .cube__right {
+  background: url("../images/cube-3.jpg") no-repeat 50% -7vw;
+  background-size: cover;
+}
+.cube--3 .cube__right {
+  background: url("../images/cube-3.jpg") no-repeat 50% -14vw;
+  background-size: cover;
+}
+.cube--1 .cube__back {
+  background: url("../images/cube-4.jpg") no-repeat 50% 0;
+  background-size: cover;
+}
+.cube--2 .cube__back {
+  background: url("../images/cube-4.jpg") no-repeat 50% -7vw;
+  background-size: cover;
+}
+.cube--3 .cube__back {
+  background: url("../images/cube-4.jpg") no-repeat 50% -14vw;
+  background-size: cover;
+}
+.cube--1 {
+  transition: transform 0.4s;
+}
+.cube--2 {
+  z-index: 100;
+}
+.cube__face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+.cube__front {
+  transform: translateZ(21vw);
+}
+.cube__back {
+  transform: translateZ(-21vw) rotateY(180deg);
+}
+.cube__top {
+  height: 42vw;
+  background-color: #111;
+  transform: translateY(-21vw) rotateX(90deg);
+}
+.cube__bottom {
+  height: 42vw;
+  background-color: #111;
+  transform: translateY(-14vw) rotateX(-90deg);
+}
+.cube__right {
+  transform: translateX(21vw) rotateY(90deg);
+}
+.cube__left {
+  transform: translateX(-21vw) rotateY(-90deg);
+}
+
+@media (min-width: 768px) {
+  .home__heading {
+    font-size: 5rem;
+  }
+  .home__heading::after {
+    height: 7.6rem;
+  }
+}
+@media (min-width: 992px) {
+  .home {
+    background-image: url(../images/hero-big.jpg);
+  }
+}
+@media (min-width: 1200px) {
+  .about__container {
+    gap: 7rem;
+  }
+  .about__img-box {
+    height: 50rem;
+  }
+  .about__img {
+    min-height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .about__content {
+    gap: 5rem;
+  }
+  .counter {
+    background-image: url("../images/counter-big.jpg");
+  }
+}/*# sourceMappingURL=main.css.map */

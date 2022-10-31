@@ -1,0 +1,11 @@
+@keyframes blinking {
+    0%{
+        background-color: transparent;
+    }
+    50%{
+        background-color: $color-text;
+    }
+    100%{
+        background-color: transparent;
+    }
+}

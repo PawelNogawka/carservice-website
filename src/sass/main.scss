@@ -1,0 +1,1017 @@
+@import "./colors";
+@import "./components";
+@import "./animations";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppis", sans-serif;
+  color: $color-text;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  scroll-padding: 7rem;
+}
+
+body {
+  background-color: $bg-color;
+  font-size: 1.6rem;
+  font-family: "Poppins", sans-serif;
+}
+
+button {
+  cursor: pointer;
+}
+
+.header {
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  transition: all .4s ease;
+
+  &.active{
+  padding: 2.6rem;
+  background-color: $main;
+ box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  }
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1200px;
+  }
+
+  &__logo {
+    color: $color-text;
+    font-weight: 700;
+    letter-spacing: 0.05rem;
+    text-decoration: none;
+    font-size: min(3rem, 5.5vw);
+    text-transform: uppercase;
+  }
+}
+
+.nav {
+
+  &__btn {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 7rem;
+    height: 3rem;
+    padding: 0.7rem;
+    background: 0;
+    border: 0;
+    z-index:100;
+  }
+
+  &__line {
+    height: 0.3rem;
+    width: 100%;
+    background-color: $color-text;
+    transition: transform .3s ease;
+  }
+
+  &.active &__line--first{
+    transform: rotate(45deg) translateY(0.7rem);
+  }
+
+  &.active &__line--second{
+    transform: rotate(-45deg)  translateY(-0.7rem);
+  }
+
+
+  &__list{
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    width: 100%;
+    height: 100%;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size:min(11vw,3rem);
+    background-color: $main-opacity;
+    list-style-type: none;
+    text-align: center;
+    transform: translateY(-102%);
+    transition: transform .5s ease;
+  }
+
+  &.active  &__list{
+        transform: translateY(0);
+  }
+
+  &__link{
+    text-decoration: none;
+    padding: 1rem;
+  }
+}
+
+.home {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-image: url(../images/hero-small.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 0;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(54, 50, 158, 0.7);
+    z-index: -20;
+  }
+
+  &__banner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+    z-index: 10;
+  }
+
+  &__heading {
+    position: relative;
+    text-transform: uppercase;
+    color: $color-text;
+    letter-spacing: 0.05rem;
+    font-size: 2.4rem;
+    text-align: center;
+    line-height: 150%;
+    text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
+
+    &::after {
+      content: "";
+      position: absolute;
+      height: 3.3rem;
+      width: 0.3rem;
+      background-color: $color-text;
+      animation: blinking 1s 5.4s infinite;
+    }
+  }
+}
+
+.about {
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4rem;
+    align-items: center;
+    justify-content: center;
+  }
+  &__images-container {
+    flex: 1 1 44rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+  }
+
+  &__img-box {
+    flex: 1 1 20rem;
+  }
+  &__img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 0.3rem;
+    box-shadow: $box-shadow;
+  }
+
+  &__content {
+    flex: 1 1 40rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4rem;
+  }
+
+  &__heading {
+    font-weight: 600;
+    font-size: 2.4rem;
+    letter-spacing: 0.05rem;
+    text-transform: capitalize;
+    line-height: 150%;
+  }
+
+  &__info {
+    line-height: 150%;
+  }
+  &__contact {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+  }
+  &__contact-tile {
+    flex: 1 1 15rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+    align-items: center;
+    justify-content: center;
+    i {
+      font-size: 3.5rem;
+    }
+  }
+
+  &__contact-name {
+    font-weight: 600;
+    font-size: 2.2rem;
+    letter-spacing: 0.05rem;
+    text-transform: capitalize;
+  }
+
+  &__btn {
+    box-shadow: $btn-shadow;
+  }
+}
+
+.counter {
+  position: relative;
+  margin: 3rem 0;
+  background-image: url("../images/counter-small.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  z-index: -20;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(54, 40, 158, 0.7);
+    z-index: -1;
+  }
+
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    gap: 4rem;
+  }
+
+  &__tile {
+    flex: 1 1 20rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+
+    i {
+      font-size: 3.3rem;
+    }
+  }
+  &__name {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 2.2rem;
+  }
+
+  &__amount {
+    font-weight: 600;
+    font-size: 2rem;
+  }
+}
+
+.services {
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4rem;
+    align-items: stretch;
+    justify-content: center;
+  }
+
+  &__service {
+    position: relative;
+    flex: 1 1 33rem;
+    padding: 3rem 2rem;
+    border-radius: 0.3rem;
+    box-shadow: $box-shadow;
+    background-image: url("../images/service-1.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0;
+
+    &:nth-of-type(1) {
+      background-image: url("../images/car-service-2.jpg");
+    }
+    &:nth-of-type(2) {
+      background-image: url("../images/car-service-2.jpg");
+    }
+    &:nth-of-type(3) {
+      background-image: url("../images/car-service-3.jpg");
+    }
+    &:nth-of-type(4) {
+      background-image: url("../images/car-service-4.jpg");
+    }
+    &:nth-of-type(5) {
+      background-image: url("../images/car-service-5.jpg");
+    }
+    &:nth-of-type(6) {
+      background-image: url("../images/car-service-6.jpg");
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: -10;
+      border-radius: 0.3rem;
+    }
+  }
+
+  &__name {
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 8rem;
+    text-align: center;
+    font-size: 3rem;
+    line-height: 150%;
+  }
+
+  &__subtitle {
+    font-weight: 600;
+    font-size: 2rem;
+    padding-left: 1rem;
+    text-transform: uppercase;
+    line-height: 150%;
+    width: 100%;
+  }
+  &__line {
+    height: 0.3rem;
+    width: 85%;
+    background-color: $main;
+    border: 0;
+    margin-bottom: 6rem;
+  }
+
+  &__info {
+    line-height: 150%;
+    text-align: center;
+    margin-bottom: 5rem;
+  }
+
+  &__btn {
+    display: block;
+    width: 17rem;
+    margin: 0 auto;
+    box-shadow: $btn-shadow;
+    z-index: 10;
+    text-align: center;
+  }
+}
+
+.gallery {
+  min-height: 100vh;
+  width: 100%;
+
+  &__container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  &__viewport {
+    display: none;
+  }
+
+  &__mobile-container {
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 3rem;
+  }
+  &__img-box {
+    flex: 1 1 30rem;
+  }
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.3rem;
+    box-shadow: $box-shadow;
+    display: block;
+  }
+}
+
+.cube {
+  display: none;
+}
+
+.hero {
+  position: relative;
+  background-image: url("../images/h-small.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 0;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(54, 40, 158, 0.7);
+    z-index: -10;
+    border-radius: 0.3rem;
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+  &__banner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+    width: 100%;
+  }
+
+  &__heading {
+    font-size: min(5.4rem, 8vw);
+    text-transform: uppercase;
+    text-align: center;
+    text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
+  }
+
+  &__info {
+    text-align: center;
+    line-height: 150%;
+  }
+}
+
+.meet {
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    gap: 7rem;
+  }
+}
+
+.clock {
+
+  &__face {
+    position: relative;
+    width: 27rem;
+    height: 27rem;
+    margin-bottom: 1.5rem;
+  }
+
+  &__needle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0.3rem;
+    transform-origin: bottom center;
+    background-color: $color-text;
+
+    &--hours {
+      transform: translate(-50%, -100%) rotate(0);
+      height: 8.5rem;
+    }
+    &--minutes {
+      transform: translate(-50%, -100%) rotate(0);
+      height: 13rem;
+    }
+
+    &--seconds {
+      transform: translate(-50%, -100%) rotate(0);
+      height: 13rem;
+      background-color: $main;
+    }
+  }
+
+  &__center-point {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $main;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 50%;
+      background-color: $bg-color;
+    }
+  }
+
+  &__time-box {
+    text-align: center;
+  }
+  &__time {
+    font-size: min(10vw, 4.6rem);
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+  }
+  &__date{
+    text-transform: capitalize;
+    font-size: 1.4rem;
+  }
+}
+
+.calendar {
+  width: 30rem;
+  height: 50.4rem;
+  box-shadow: $box-shadow;
+
+  &__top {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 17rem;
+    background-color: $main;
+  }
+
+  &__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 1rem;
+    background: 0;
+    border: 0;
+
+    &--left {
+      left: 0.8vw;
+    }
+    &--right {
+      right: 0.8vw;
+    }
+
+    i {
+      font-size: 2.2rem;
+    }
+  }
+
+  &__month {
+    margin-bottom: 0.3rem;
+    text-transform: capitalize;
+    font-weight: 600;
+    font-size: 3rem;
+  }
+
+  &__date {
+    text-transform: capitalize;
+    font-size: 1.5rem;
+  }
+
+  &__weekdays-container {
+    display: flex;
+  }
+
+  &__bottom {
+    padding: 1.4rem 0.7rem;
+    font-size: 1.3rem;
+    text-align: center;
+  }
+
+  &__weekday {
+    margin-bottom: 1.5rem;
+    width: 13%;
+    flex-grow: 1;
+    text-transform: capitalize;
+  }
+
+  &__days-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &__day {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 14.285%;
+    height: 3.5rem;
+    margin: 0.7rem 0;
+    font-size: 1rem;
+    user-select: none;
+    transition: background-color 0.2s ease;
+
+    &:hover:not(.calendar__day--today) {
+      background-color: $dark;
+    }
+
+    &--today {
+      background-color: $main;
+    }
+    &--prev,
+    &--next {
+      opacity: 0.5;
+    }
+  }
+}
+
+.form{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7rem;
+
+
+  &__row{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6rem;
+    width: 100%;
+  }
+  &__input-box{
+    position: relative;
+    flex:1 1 30rem;
+    display: flex;
+    flex-direction: column;
+    height: 6rem;
+
+    &--area{
+      height: 8rem;
+    }
+  }
+
+
+
+  &__label
+  {
+    position: absolute;
+    left:0;
+    top: 0;
+    height: 100%;
+    padding-left: 0.6rem;
+    text-transform: capitalize;
+    line-height: 6rem;
+    transition: transform .4s ease;
+  }
+  
+  &__input,
+  &__txt{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding:0 0.8rem;
+    border:0;
+    background: transparent;
+    outline: none;
+    z-index: 10;
+
+  }
+
+  &__input:focus + &__label,
+  &__txt:focus + &__label{
+    transform: translateY(-4.5rem);
+  }
+  
+  &__input:valid + &__label,
+  &__txt:valid + &__label{
+    transform: translateY(-4.5rem);
+  }
+
+
+  &__input:valid ~ &__line,
+  &__txt:valid  ~ &__line{
+    height: 100%;
+  }
+
+  &__input:focus ~ &__line,
+  &__txt:focus  ~ &__line{
+    height: 100%;
+  }
+
+
+  &__line{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 0.4rem;
+    background-color: $main;
+    border-radius: .3rem;
+    transition: height .4s ease;
+  }
+
+  &__txt{
+    resize: none;
+    padding-top: 0.8rem;
+    padding-left: 0.8rem;
+  }
+}
+
+
+.footer{
+  &__rights{
+    text-align: center;
+    text-transform: capitalize;
+    font-size:min(6vw,2.5rem)
+  }
+}
+
+@media (min-width: 568px) {
+  .calendar {
+    width: 42rem;
+    height: 52.3rem;
+
+    &__bottom {
+      padding: 2rem;
+    }
+
+    &__weekdays-container {
+      margin-bottom: 0.6rem;
+    }
+
+    &__weekday {
+      font-size: 1.6rem;
+    }
+
+    &__day {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .home {
+    &__heading {
+      font-size: 5rem;
+
+      &::after {
+        height: 7.6rem;
+      }
+    }
+  }
+
+  .services {
+    &__container {
+      gap: 7rem;
+    }
+  }
+
+  .form{
+    gap: 11rem;
+    &__input:focus + &__label,
+    &__txt:focus + &__label{
+      transform: translate(-4.5rem,-6rem);
+    }
+    
+    &__input:valid + &__label,
+    &__txt:valid + &__label{
+      transform: translate(-4.5rem, -6rem);
+    }
+  
+  }
+}
+
+@media (min-width: 992px) {
+  .home {
+    background-image: url(../images/hero-big.jpg);
+  }
+
+  .gallery {
+    height: 100vh;
+    margin-bottom: 15rem;
+    &__viewport {
+      display: block;
+      position: absolute;
+      left: 50%;
+      top: 12%;
+      transform: translateX(-50%);
+      width: 42vw;
+      height: 21vw;
+      perspective: 1300px;
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: 120%;
+        height: 20%;
+        background-color: rgba(111, 100, 231, 0.7);
+        z-index: -1;
+        top: 140%;
+        left: -10%;
+        filter: blur(7rem);
+      }
+    }
+    &__mobile-container {
+      display: none;
+    }
+  }
+  .cube {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 33.3333333%;
+    transform-style: preserve-3d;
+
+    &--1 &__front {
+      background: url("../images/cube-1.jpg") no-repeat 50% 0;
+      background-size: cover;
+    }
+    &--2 &__front {
+      background: url("../images/cube-1.jpg") no-repeat 50% 33%;
+      background-size: cover;
+    }
+    &--3 &__front {
+      background: url("../images/cube-1.jpg") no-repeat 50% 66%;
+      background-size: cover;
+    }
+
+    &--1 &__left {
+      background: url("../images/cube-2.jpg") no-repeat 50% 0;
+      background-size: cover;
+    }
+    &--2 &__left {
+      background: url("../images/cube-2.jpg") no-repeat 50% -7vw;
+      background-size: cover;
+    }
+    &--3 &__left {
+      background: url("../images/cube-2.jpg") no-repeat 50% -14vw;
+      background-size: cover;
+    }
+
+    &--1 &__right {
+      background: url("../images/cube-3.jpg") no-repeat 50% 0;
+      background-size: cover;
+    }
+    &--2 &__right {
+      background: url("../images/cube-3.jpg") no-repeat 50% -7vw;
+      background-size: cover;
+    }
+    &--3 &__right {
+      background: url("../images/cube-3.jpg") no-repeat 50% -14vw;
+      background-size: cover;
+    }
+
+    &--1 &__back {
+      background: url("../images/cube-4.jpg") no-repeat 50% 0;
+      background-size: cover;
+    }
+    &--2 &__back {
+      background: url("../images/cube-4.jpg") no-repeat 50% -7vw;
+      background-size: cover;
+    }
+    &--3 &__back {
+      background: url("../images/cube-4.jpg") no-repeat 50% -14vw;
+      background-size: cover;
+    }
+
+    &--1 {
+      transition: transform 0.4s;
+    }
+
+    &--2 {
+      z-index: 100;
+      transition: transform 0.4s 0.2s;
+    }
+
+    &--3 {
+      transition: transform 0.4s 0.4s;
+    }
+
+    &__face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+    }
+
+    &__front {
+      transform: translateZ(21vw);
+    }
+
+    &__back {
+      transform: translateZ(-21vw) rotateY(180deg);
+    }
+
+    &__top {
+      height: 42vw;
+      background-color: #111;
+      transform: translateY(-21vw) rotateX(90deg);
+    }
+
+    &__bottom {
+      height: 42vw;
+      background-color: #111;
+      transform: translateY(-14vw) rotateX(-90deg);
+    }
+
+    &__right {
+      transform: translateX(21vw) rotateY(90deg);
+    }
+
+    &__left {
+      transform: translateX(-21vw) rotateY(-90deg);
+    }
+
+    &__control {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      width: 40px;
+      height: 40px;
+      border: 1px solid #fff;
+      background-color: $main;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      border-radius: 100%;
+      cursor: pointer;
+      z-index: 100;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: $dark;
+      }
+    }
+
+    &__left-arrow {
+      left: -35%;
+      top: 50%;
+    }
+
+    &__right-arrow {
+      left: 135%;
+      top: 50%;
+    }
+    &__play-pause {
+      top: 140%;
+      left: 120%;
+    }
+  }
+
+  .hero {
+    background-image: url("../images/hero-large.jpg");
+  }
+}
+
+@media (min-width: 1200px) {
+  .about {
+    &__container {
+      gap: 7rem;
+    }
+    &__img-box {
+      height: 50rem;
+    }
+
+    &__img {
+      min-height: 100%;
+      object-fit: cover;
+    }
+
+    &__content {
+      gap: 5rem;
+    }
+  }
+
+  .counter {
+    background-image: url("../images/counter-big.jpg");
+  }
+}
